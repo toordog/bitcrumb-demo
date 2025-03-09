@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const openPopupBtn = document.getElementById("openPopup");
     const closePopupBtn = document.getElementById("closePopup");
     const mainContent = document.getElementById("mainContent");
+    const createKeysSection = document.getElementById("createKeysSection");
 
     // Open Popup
     openPopupBtn.addEventListener("click", () => {
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Function to show a loading screen with a custom message
     function showLoading(message = "Loading...") {
-        clearMainContent(); // Clear previous content
+        clearMainContent();
 
         const loadingDiv = document.createElement("div");
         loadingDiv.classList.add("loading-container");
@@ -40,28 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.appendChild(loadingDiv);
     }
 
-    // Function to replace the main content with a new fullscreen section
-    function replaceMainContent(content) {
-        clearMainContent(); // Ensure previous content is fully removed
-
-        // Create new fullscreen section
-        const section = document.createElement("div");
-        section.classList.add("fullscreen-section", "p-4");
-        section.innerHTML = content;
-
-        // Insert into mainContent
-        mainContent.appendChild(section);
+    // Function to show the "Create Keys" screen
+    function showCreateKeysScreen() {
+        clearMainContent();
+        createKeysSection.classList.remove("d-none");
+        mainContent.appendChild(createKeysSection);
     }
 
-    replaceMainContent("<h4>Hello World</h4><p>Your data will load shortly</p>");
-
+    // Example: Show loading, then display "Create Keys"
+    showLoading("Fetching key details...");
+    
     setTimeout(() => {
-        showLoading("Fetching your data...");
+        showCreateKeysScreen();
     }, 3000);
-
-
-    // Example: Show loading before displaying content
-    setTimeout(() => {
-        replaceMainContent("<h4>Your Data</h4><p>Your Coolness: 75%</p>");
-    }, 6000);
 });
