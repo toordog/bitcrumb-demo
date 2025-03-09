@@ -1,0 +1,47 @@
+/* General Styles */
+body {
+    background-color: #ddd; /* Light Gray Background */
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1E4D92; /* Trust Blue */
+    color: white; /* White text for contrast */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollable Body */
+.scrollable-body {
+    margin-top: 60px;
+    padding: 15px;
+    min-height: calc(100vh - 60px);
+    overflow-y: auto;
+    background-color: #cdcdcd; /* Gray background for mainContent */
+    display: flex;
+    justify-content: center; /* Centers the inserted div */
+    align-items: flex-start;
+}
+
+/* Full-Page Section */
+.fullscreen-section {
+    /*width: 95%;  Takes up 95% of the width of #mainContent */
+    /*max-width: 95%;  Ensures it does not exceed #mainContent */
+    height: 99%; /*90vh;  // Take up most of the vertical space */
+    overflow-y: auto;
+    background-color: #fff; /* White background for inserted div */
+    border-radius: 8px; /* Slightly rounded edges */
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15); /* Very slight shadow */
+    color: black; /* Ensure text is readable */
+}
