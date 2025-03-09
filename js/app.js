@@ -14,10 +14,35 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.classList.remove("show");
     });
 
+    // Function to clear mainContent
+    function clearMainContent() {
+        while (mainContent.firstChild) {
+            mainContent.removeChild(mainContent.firstChild);
+        }
+    }
+
+    // Function to show a loading screen with a custom message
+    function showLoading(message = "Loading...") {
+        clearMainContent(); // Clear previous content
+
+        const loadingDiv = document.createElement("div");
+        loadingDiv.classList.add("loading-container");
+
+        const loadingText = document.createElement("p");
+        loadingText.classList.add("loading-text");
+        loadingText.textContent = message;
+
+        const spinner = document.createElement("div");
+        spinner.classList.add("loading-spinner");
+
+        loadingDiv.appendChild(loadingText);
+        loadingDiv.appendChild(spinner);
+        mainContent.appendChild(loadingDiv);
+    }
+
     // Function to replace the main content with a new fullscreen section
     function replaceMainContent(content) {
-        // Clear previous content completely
-        mainContent.innerHTML = "";
+        clearMainContent(); // Ensure previous content is fully removed
 
         // Create new fullscreen section
         const section = document.createElement("div");
@@ -28,8 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.appendChild(section);
     }
 
-    // Example: Replace content dynamically after 2 seconds
-    //setTimeout(() => {
-        replaceMainContent("<h3>New Fullscreen Section</h3><p>This replaces the previous content entirely.</p>");
-    //}, 2000);
+    replaceMainContent("<h4>Hello World</h4><p>Your data will load shortly</p>");
+
+    setTimeout(() => {
+        showLoading("Fetching your data...");
+    }, 3000);
+
+
+    // Example: Show loading before displaying content
+    setTimeout(() => {
+        replaceMainContent("<h4>Your Data</h4><p>Your Coolness: 75%</p>");
+    }, 6000);
 });
