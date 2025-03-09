@@ -53,15 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
         mainContent.appendChild(section);
     }
 
-    replaceMainContent("<h4>Hello World</h4><p>Your data will load shortly</p>");
-
-    setTimeout(() => {
-        showLoading("Fetching your data...");
-    }, 3000);
-
-
-    // Example: Show loading before displaying content
-    setTimeout(() => {
-        replaceMainContent("<h4>Your Data</h4><p>Your Coolness: 75%</p>");
-    }, 6000);
+//    replaceMainContent("<h4>Hello World</h4><p>Your data will load shortly</p>");
+//
+//    setTimeout(() => {
+//        showLoading("Fetching your data...");
+//    }, 3000);
+//
+//
+//    // Example: Show loading before displaying content
+//    setTimeout(() => {
+//        replaceMainContent("<h4>Your Data</h4><p>Your Coolness: 75%</p>");
+//    }, 6000);
 });
